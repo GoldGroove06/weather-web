@@ -1,0 +1,35 @@
+.appname{
+    font-size: larger;  
+    flex: 1;
+    margin:10px;
+    margin-top:15px;
+    
+}
+.header{
+    flex-direction: row;
+    display: flex;
+    background-color: rgb(27, 214, 67);  
+    height: 60px;
+    width: 100%;
+    
+}
+
+
+.tempselector{
+    font-size: medium;
+    flex:1;
+    display: flex;
+    justify-content: flex-end;
+    margin: 15px;
+    align-items: center;
+}
+
+
+
+.togglebtn{
+    border-radius: 10px;
+    height: 85%;
+    width: 40px;
+    margin-top: 4px;
+}
+
