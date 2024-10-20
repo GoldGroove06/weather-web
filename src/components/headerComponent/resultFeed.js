@@ -9,7 +9,7 @@ function ResultFeed(props) {
       <div>
         {props.data.results.map(
         item => (
-          <div > {item.id}</div>
+          <div onClick={() => {props.setLatitude(item.latitude); props.setLongitude(item.longitude); props.setLocation(`${item.name}, ${item.admin1}, ${item.country}`); props.setSearchBox(false)}}> {item.name},{item.admin1} ,{item.country}</div>
         )
   
         

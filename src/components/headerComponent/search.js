@@ -3,10 +3,14 @@ import styles from "./searchStyle.module.css"
 import searchIcon from "../../assets/images/searchIcon.png"
 import axios from 'axios';
 import ResultFeed from "./resultFeed";
+import 'bootstrap/dist/css/bootstrap.min.css'; 
+import $ from 'jquery'; 
+import Popper from 'popper.js'; 
+import 'bootstrap/dist/js/bootstrap.bundle.min';
 
 
 
-const Search = () => {
+const Search = (props) => {
     const defaultResult = {
         "results": [
           {
@@ -86,7 +90,7 @@ const Search = () => {
     
     useEffect(() => {
         console.log(searchContent)
-        if (searchContent != "" && searchContent.length > 2){
+        if (searchContent !== "" && searchContent.length > 2){
             axios.get(`https://geocoding-api.open-meteo.com/v1/search?name=${searchContent}&count=10&language=en&format=json`)
         .then(response => {console.log(response.data); setSearchResult(response.data)})
         .catch(function (error) {console.log(error.response.status)})
@@ -106,13 +110,18 @@ const Search = () => {
     return(
         <div className={styles.searchbardiv} style={searchBox ? {height:"200px"} : {}}>
             <div className={styles.searchButton}><img src={searchIcon} alt="search Icon" className={styles.searchicon} /></div>
+            
             <div  className={styles.searchContainer}>
            <input type='text' placeholder="Search City " className={styles.searchbar} onClick={() => {setSearchBox(true)}} onChange={(e) => { if (e.target.value !== ""){setSearchContent(e.target.value)}}}/>
            {searchBox ? (
-            <div className={styles.searchresult}> <ResultFeed data = {searchResult} /> </div>
+            <div className={styles.searchresult}> <ResultFeed data = {searchResult} setLatitude= {props.setLatitude} setLongitude= {props.setLongitude} setLocation= {props.setLocation} setSearchBox= {setSearchBox}/> </div>
            ):
            ""}
+          
            </div>
+           <button className={styles.closeButton} onClick={() => setSearchBox(false)} style={searchBox ? {display:"block"}: {display:"none"}}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+  <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+</svg></button>
            </div>
     )
 }

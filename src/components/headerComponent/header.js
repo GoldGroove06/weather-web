@@ -1,29 +1,21 @@
 import {
     React,
-   
-    useEffect,
-    useState,
 
 }from 'react';
 import Search from './search';
 import styles from "./headerStyle.module.css"
 
 
-const Header = () => {
-    const [isCelsius, setIsCelsius] = useState(false)
-    useEffect(() => {
-        isCelsius ? console.log("y") : console.log("n")
-    }, [isCelsius]
-
-    );
+const Header = (props) => {
+    
     
     return( <div className={styles.header}>
         <div className={styles.appname}>
             Weather Forecast
         </div >
-        <Search/>
+        <Search setLatitude= {props.setLatitude} setLongitude= {props.setLongitude} setLocation= {props.setLocation}/>
            <div className={styles.tempselector}>
-           <button className={styles.togglebtn} onClick={() => {setIsCelsius(!isCelsius)}}>{isCelsius ? "\u00B0C" : "\u00B0F"}</button>
+           <button className={styles.togglebtn} onClick={() => {props.setIsCelsius(!props.isCelsius)}}>{props.isCelsius ? "\u00B0C" : "\u00B0F"}</button>
            </div>
         
     </div>)
