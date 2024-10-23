@@ -14,6 +14,7 @@
     flex-wrap: wrap;
 }
 
+
 .locationContainer{
     display: flex;
     margin-top: 40px;
@@ -53,14 +54,15 @@
     margin: 12px;
     display: flex;
     flex:1;
-    justify-content: center;
+    
     align-items: center;
     width: 100%;
     background-color: blueviolet;
     border-radius: 10px;
-    height: 140px;
+    height: 180px;
     flex-direction: row;
-    overflow-y: scroll;
+    overflow-x: scroll;
+    
 
 }
 
@@ -72,6 +74,7 @@
 
 .hourlyDiv{
     display: flex;
+    flex: 1;
     height: 105px;
     border-style: solid;
     width: auto;
@@ -123,18 +126,21 @@
 
 }
 
+.iconDiv{
+    margin: 10px;
+}
 
 .currentCondContainer{
     display: flex;
     justify-content: center;
     flex-direction: row;
-    background-color: cadetblue;
+    background-color: transparent;
     flex-wrap: wrap;
-    border-style: solid;
+    border-style: none;
     margin-top: 12px;
-    margin-right: 100px;
-    margin-left: 100px;
-    border-radius: 10px;
+    margin-right: 10%;
+    margin-left: 10%;
+
 
 
 
@@ -143,28 +149,47 @@
 
 
 .currentCondDiv{
-    width:35%;
+    width:30vh;
+    max-width: 30vh;
     height: 100px;
     display: flex;
+    flex: 1;
+    text-wrap: nowrap;
     justify-content: center;
     background-color: yellow;
     border-style: solid;
     margin: 10px;
     border-radius: 10px;
+    font-size: larger;
+    align-items: center;
+    padding: 5%;
 
 
 
 }
 
-.risesetContainer{
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    background-color: rgb(34, 175, 29);
-    border-style: solid;
-    margin-top: 12px;
-    margin-right: 100px;
-    margin-left: 100px;
-    border-radius: 10px;
 
-}
+
+@media only screen and (max-width: 600px) {
+    .mainContainer  {
+        margin-right: 5%;
+        margin-left: 5%;
+    }
+    .weeklyContainer{
+        margin-right: 5%;
+        margin-left: 5%;
+    }
+    .currentCondContainer{
+        margin-right: 5%;
+        margin-left: 5%;
+    }
+    .risesetContainer{
+        margin-right: 5%;
+        margin-left: 5%;
+
+    }
+    .locationContainer{
+        margin-left: 0%;
+        font-size: x-large;
+    }
+  }

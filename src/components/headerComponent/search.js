@@ -1,12 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState , useRef} from "react";
 import styles from "./searchStyle.module.css"
 import searchIcon from "../../assets/images/searchIcon.png"
 import axios from 'axios';
 import ResultFeed from "./resultFeed";
 import 'bootstrap/dist/css/bootstrap.min.css'; 
-import $ from 'jquery'; 
-import Popper from 'popper.js'; 
-import 'bootstrap/dist/js/bootstrap.bundle.min';
+
 
 
 
@@ -87,6 +85,21 @@ const Search = (props) => {
     const [searchBox, setSearchBox] = useState(false)
     const [searchContent, setSearchContent]  = useState('')
     const [searchResult, setSearchResult] = useState(defaultResult)
+    const searchRef = useRef(null);
+    const inputRef = useRef(null);
+    useEffect(() => {
+      document.addEventListener("mousedown", handleOutsideClick);
+      return () => {
+        document.removeEventListener("mousedown", handleOutsideClick);
+      };
+    });
+
+    const handleOutsideClick = (e) =>{
+      if (searchRef.current && !searchRef.current.contains(e.target)) {
+        setSearchBox(false);
+        inputRef.current.value='';
+      }
+    }
     
     useEffect(() => {
         console.log(searchContent)
@@ -108,20 +121,18 @@ const Search = (props) => {
     
     
     return(
-        <div className={styles.searchbardiv} style={searchBox ? {height:"200px"} : {}}>
+        <div className={styles.searchbardiv} style={searchBox ? {height:"200px"} : {}} ref={searchRef}>
             <div className={styles.searchButton}><img src={searchIcon} alt="search Icon" className={styles.searchicon} /></div>
             
             <div  className={styles.searchContainer}>
-           <input type='text' placeholder="Search City " className={styles.searchbar} onClick={() => {setSearchBox(true)}} onChange={(e) => { if (e.target.value !== ""){setSearchContent(e.target.value)}}}/>
+           <input type='text' placeholder="Search City " className={styles.searchbar} onClick={() => {setSearchBox(true)}} ref={inputRef} onChange={(e) => { if (e.target.value !== ""){setSearchContent(e.target.value)}}}/>
            {searchBox ? (
-            <div className={styles.searchresult}> <ResultFeed data = {searchResult} setLatitude= {props.setLatitude} setLongitude= {props.setLongitude} setLocation= {props.setLocation} setSearchBox= {setSearchBox}/> </div>
+            <div className={styles.searchresult}> <ResultFeed data = {searchResult} setLatitude= {props.setLatitude} setLongitude= {props.setLongitude} setLocation= {props.setLocation} setSearchBox= {setSearchBox} inputRef={inputRef}/> </div>
            ):
            ""}
           
            </div>
-           <button className={styles.closeButton} onClick={() => setSearchBox(false)} style={searchBox ? {display:"block"}: {display:"none"}}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
-  <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
-</svg></button>
+           <button className={styles.closeButton} onClick={() =>{ setSearchBox(false); inputRef.current.value=''}} style={searchBox ? {display:"block"}: {display:"none"}}><i class="bi bi-x-lg"></i></button>
            </div>
     )
 }

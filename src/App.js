@@ -2,6 +2,7 @@ import { useState } from 'react';
 import './App.css';
 import Header from './components/headerComponent/header'
 import Body from "./components/bodyComponent/body"
+import 'bootstrap-icons/font/bootstrap-icons.css';
 
 function App() {
   const [isCelsius, setIsCelsius] = useState(true)
