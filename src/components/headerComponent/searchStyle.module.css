@@ -27,6 +27,7 @@
     
     height: 60%;
     margin-top: 10px;
+    position: relative;
     
  
 }
@@ -39,36 +40,70 @@
     justify-content: center;
     align-items: center;
     display: flex;
+    
 }
 
 .searchicon{
+   
     width: 20px;
     height: 20px;
+    margin-bottom: 8px;
+
 }
 
 .searchresult{
-    justify-content: center;
-    align-items: center;
+    
+    
     display: flex;
     flex:1;
     overflow: scroll;
+    overflow-x: hidden;
     margin-top: 10px;
+    width: 113%;
+    
+  
     
 
 }
 
 .searchContainer{
+    
     display: flex;
     flex-direction: column ;
     flex: 1;
     justify-content: center;
     align-content: center;
     margin-top: 10px;
+    
 
 }
 
 .resultFeedConatiner{
+  
     display: flex;
     margin-top: 10px;
+    padding: 2px;
+    
+}
+
+.closeButton{
+   
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    border: none;
+    background-color: transparent;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+@media only screen and (max-width: 600px) {
+    .searchbardiv{
+        flex: 2;
+        min-width:60% ;
+    }
+        
+    
     
 }

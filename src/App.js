@@ -10,7 +10,7 @@ function App() {
   const [longitude, setLongitude] = useState(75.5792)
   const [location, setLocation] = useState("Jalandhar, Punjab, India")
   return (
-    <div style={{backgroundColor:"blue"}}>
+    <div style={{backgroundColor:"#FFF1DB"}}>
       <Header isCelsius = {isCelsius} setIsCelsius= {setIsCelsius} setLatitude={setLatitude} setLongitude= {setLongitude} setLocation= {setLocation}/>
       <Body isCelsius = {isCelsius} latitude={latitude} longitude={longitude} location={location}/>
     </div>

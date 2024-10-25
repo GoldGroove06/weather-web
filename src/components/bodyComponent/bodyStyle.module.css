@@ -6,10 +6,10 @@
     padding-left: 4%;
     margin-top: 12px;
     margin-right: 100px;
-    margin-left: 100px;
+    margin-left: 150px;
     border-radius: 10px;
     border-color: transparent;
-    background-color: antiquewhite;
+    background-color: #D4BDAC;
     flex-direction: row;
     flex-wrap: wrap;
 }
@@ -20,7 +20,7 @@
     margin-top: 40px;
     margin-left: 110px;
     font-size: xx-large;
-    color: white;
+    color: rgb(0, 0, 0);
    
 }
 .locationicon{
@@ -38,9 +38,10 @@
 
 .conditions{
     display: flex;
-    flex: 1;
-    justify-content: right;
-    margin: 16px;
+    
+    flex-direction: column;
+    float: right;
+    
 }
 
 .temphlContainer{
@@ -50,18 +51,21 @@
     justify-content: left;
 }
 
+
 .hourlyContainer{
     margin: 12px;
     display: flex;
     flex:1;
+    margin-left: 0;
     
     align-items: center;
     width: 100%;
-    background-color: blueviolet;
+    background-color: #536493;
     border-radius: 10px;
     height: 180px;
     flex-direction: row;
     overflow-x: scroll;
+    
     
 
 }
@@ -75,13 +79,18 @@
 .hourlyDiv{
     display: flex;
     flex: 1;
-    height: 105px;
-    border-style: solid;
+    flex-direction: column;
+    height:150px;
+    border-style: none;
     width: auto;
     margin: 2px;
+    padding: 16px;
     text-align: center;
     border-radius: 10px;
-    background-color: gray;
+    background-color: transparent;
+    padding-top: 0;
+    padding-bottom: 0 ;
+    
     
     
 }
@@ -106,7 +115,7 @@
     margin-right: 100px;
     margin-left: 100px;
     border-radius: 10px;
-    background-color: brown;
+    background-color: transparent;
     
     display: flex;
     justify-content: center;
@@ -122,12 +131,25 @@
     display: flex;
     padding: 8px;
     flex-direction: row;
+    border-color: #D4BDAC;
+    background-color: #536493;
+    color : white;
+    align-items: center;
     
+
+}
+
+.ccTag{
+    margin-left:110px;
+    padding: 16px;
 
 }
 
 .iconDiv{
     margin: 10px;
+    font-size: x-large;
+    color: orange;
+    
 }
 
 .currentCondContainer{
@@ -138,8 +160,9 @@
     flex-wrap: wrap;
     border-style: none;
     margin-top: 12px;
-    margin-right: 10%;
-    margin-left: 10%;
+    margin-right: 5%;
+    margin-left: 5%;
+    
 
 
 
@@ -149,20 +172,23 @@
 
 
 .currentCondDiv{
-    width:30vh;
-    max-width: 30vh;
-    height: 100px;
+    width:30%;
+    max-width: 150px;
+    min-width: 150px;
+    height: 80px;
+    max-height: 80px;
     display: flex;
     flex: 1;
     text-wrap: nowrap;
     justify-content: center;
-    background-color: yellow;
+    background-color: #536493;
     border-style: solid;
     margin: 10px;
     border-radius: 10px;
-    font-size: larger;
+  
     align-items: center;
     padding: 5%;
+    color: white;
 
 
 
@@ -177,7 +203,7 @@
     }
     .weeklyContainer{
         margin-right: 5%;
-        margin-left: 5%;
+        margin-left: 2%;
     }
     .currentCondContainer{
         margin-right: 5%;
@@ -191,5 +217,9 @@
     .locationContainer{
         margin-left: 0%;
         font-size: x-large;
+    }
+    .ccTag{
+        margin: 5%;
+    
     }
   }
