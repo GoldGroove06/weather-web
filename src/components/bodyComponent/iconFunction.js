@@ -64,21 +64,24 @@ const IconFunction = (props) =>{
     }
     useEffect(() => {
     setIsDay(props.isDay); 
-    if (props.time >= props.sunrise && props.time< props.sunset) {
-        setIsDay(1);  // Daytime
-      } else {
-        setIsDay(0);  // Nighttime
-      }
+    if (props.timeChange){
+        if (props.time >= props.sunrise && props.time< props.sunset) {
+            setIsDay(1);  // Daytime
+          } else {
+            setIsDay(0);  // Nighttime
+          }
+    }
+    
 
     isDay === 1 ? setPath(`./animated/${wmoDay[props.wCode].icon}`):setPath(`./animated/${wmoNight[props.wCode].icon}`);
     props.day === 1 ? setCondition(`${wmoDay[props.wCode].description}`):setCondition(`${wmoNight[props.wCode].description}`);
-    }, []);
+    }, [isDay,props]);
     
 
     return (
-        
+       
         <span>
-          
+           {console.log()}
             <img src={path} alt="" height="60px" width="60px"></img><br></br> {props.cond ? "":condition}
         </span>
     )

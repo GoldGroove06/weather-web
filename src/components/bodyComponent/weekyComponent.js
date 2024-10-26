@@ -26,7 +26,7 @@ const WeeklyComponent = (props) => {
         
 
     }
-    console.log(dataArray)
+   
     
     
     return(

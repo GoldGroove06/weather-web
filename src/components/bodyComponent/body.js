@@ -23,7 +23,7 @@ const Body = (props) => {
     }
   }
     )
-    .then(response => {setData(response.data);setLoading(false); console.log(response.data);})
+    .then(response => {setData(response.data);setLoading(false);})
     },[props.isCelsius, props.longitude, props.latitude]
     );
     
@@ -33,7 +33,7 @@ const Body = (props) => {
     return(
         
         <div style={{backgroundColor:"#FFF1DB"}}>
-            {console.log(data.current.weather_code)}
+            
             <div className={styles.locationContainer}><img src={locationIcon} height={50} width={50} alt="locationIcon"/>{props.location}</div>
             <div className={styles.mainContainer}>
                 <div className={styles.temphlContainer}>

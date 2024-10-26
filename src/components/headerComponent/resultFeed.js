@@ -3,7 +3,7 @@ import styles from "./searchStyle.module.css"
 import React from 'react';
 
 function ResultFeed(props) {
-  console.log(props.data.results)
+ 
   try {
     return (
       <div>

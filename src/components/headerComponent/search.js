@@ -102,10 +102,10 @@ const Search = (props) => {
     }
     
     useEffect(() => {
-        console.log(searchContent)
+        
         if (searchContent !== "" && searchContent.length > 2){
             axios.get(`https://geocoding-api.open-meteo.com/v1/search?name=${searchContent}&count=10&language=en&format=json`)
-        .then(response => {console.log(response.data); setSearchResult(response.data)})
+        .then(response => { setSearchResult(response.data)})
         .catch(function (error) {console.log(error.response.status)})
 
         }

@@ -4,7 +4,7 @@ import IconFunction from "./iconFunction"
 
 const HourlyWeather = (props) => {
     
-    console.log(props.data)
+   
     const dataArray = []
    
     for (let i = 0; i < 24; i++){
@@ -23,7 +23,7 @@ const HourlyWeather = (props) => {
         
 
     }
-    console.log(dataArray)
+    
     
     
     return(
