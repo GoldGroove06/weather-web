@@ -36,7 +36,7 @@ const WeeklyComponent = (props) => {
                     <IconFunction isDay={1} wCode = {item.wCode} cond={true}/>
                     <div style={{display:"flex",flex:2,}}>{item.date}</div>
                     <div style={{display:"flex",flex:1}}><i class="bi bi-droplet"></i>{item.prep_prob}%</div>
-                <div style={{display:"flex",flex:1,justifyContent:"right"}}>{item.min_temp}/{item.max_temp}</div>
+                <div style={{display:"flex",flex:1,justifyContent:"right"}}>{item.min_temp}{`\u00B0`}/{item.max_temp}{`\u00B0`}</div>
                 
                 </div>
 

@@ -30,7 +30,7 @@ const HourlyWeather = (props) => {
         <div className={styles.hourlyContainer}>
             {dataArray.map(item => (
                 <div className={styles.hourlyDiv} key={item.time}>
-                    <div>{item.temp}</div>
+                    <div>{item.temp}{`\u00B0`}</div>
                     <div><IconFunction isDay={0} wCode = {item.wCode} cond={true} time={item.time.slice(11)} sunrise={props.sunrise} sunset={props.sunset} timeChange={true}/></div>
                     <div>{item.time.slice(11)}</div>
                     <div>{item.prep_prob}%</div>
